@@ -6,15 +6,15 @@ console.log("Hello World");
 // Use IF ELSE statments to return desired values when a number is generated.
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 100 + 1); 
-    let result;
+    let computerResult;
     if (randomNumber <= 33) {
-        result = "rock";
+        computerResult = "rock";
     } else if (randomNumber >= 34 && randomNumber <= 66) {
-        result = "paper";
+        computerResult = "paper";
     } else {
-        result = "scissors";
+        computerResult = "scissors";
     }
-    return result;
+    return computerResult;
 }
 
 // Create a function that takes "rock, paper or scissors" as the parameters
@@ -35,7 +35,44 @@ computerScore = 0;
 // Compare arguments
 // Increment Human or Computer Score
 
-function playRound(getComputerChoice, getHumanChoice) {
-    
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+function playRound(humanChoice, computerChoice) {
+    let roundResult;
+    if (computerChoice === "rock" && humanChoice === "scissors") {
+        roundResult = "Rock beats Scissors. The Winner is Computer!";
+        if (roundResult === "Rock beats Scissors. The Winner is Computer!"){
+            ++computerScore;
+        }
+    }   else if (computerChoice === "paper" && humanChoice === "rock"){
+        roundResult = "Paper beats Rock. The Winner is Computer!";
+        if (roundResult === "Paper beats Rock. The Winner is Computer!"){
+            ++computerScore;
+        }
+    }   else if (computerChoice === "scissors" && humanChoice === "paper"){
+        roundResult = "Scissors beats Paper. The Winner is Computer!";
+        if (roundResult === "Scissors beats Paper. The Winner is Computer!"){
+            ++computerScore;
+        }
+    }   else if (computerChoice === "scissors" && humanChoice === "rock"){
+        roundResult = "Rock beats Scissors. The Winner is Human!";
+        if (roundResult === "Rock beats Scissors. The Winner is Human!"){
+            ++humanScore;
+        }
+    }   else if (computerChoice === "rock" && humanChoice === "paper"){
+        roundResult = "Paper beats Rock. The Winner is Human!";
+        if (roundResult === "Paper beats Rock. The Winner is Human!"){
+            ++humanScore;
+        }
+    }   else if (computerChoice === "paper" && humanChoice === "scissors"){
+        roundResult = "Scissors beats Paper. The Winner is Human!";
+        if (roundResult === "Scissors beats Paper. The Winner is Human!"){
+            ++humanScore;
+        }
+    }   else {
+        roundResult = "It's a draw! Let's go again!";
+    }
+    return roundResult;
 }
 
