@@ -6,5 +6,13 @@ console.log("Hello World");
 // Use IF ELSE statments to return desired values when a number is generated.
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 100 + 1); 
-    return randomNumber;
+    let result;
+    if (randomNumber <= 33) {
+        result = "rock";
+    } else if (randomNumber >= 34 && randomNumber <= 66) {
+        result = "paper";
+    } else {
+        result = "scissors";
+    }
+    return result;
 }
