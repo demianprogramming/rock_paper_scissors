@@ -19,8 +19,23 @@ function getComputerChoice() {
 
 // Create a function that takes "rock, paper or scissors" as the parameters
 // The function returns one of the strings
-
 function getHumanChoice() {
-    let humanResult = prompt("Play your pick rock, paper, or scissors.");
+    let humanResult = prompt("Play your pick rock, paper, or scissors.").toLowerCase();
     return humanResult;
 }
+
+// Add two variables to keep the score of the players
+// Inicialize those values at 0
+
+humanScore = 0;
+computerScore = 0;
+
+// Create a funtion that takes two arguments: comp and human
+// Make humanChoice parameter  case insensitive
+// Compare arguments
+// Increment Human or Computer Score
+
+function playRound(getComputerChoice, getHumanChoice) {
+    
+}
+
