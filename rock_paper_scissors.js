@@ -16,3 +16,11 @@ function getComputerChoice() {
     }
     return result;
 }
+
+// Create a function that takes "rock, paper or scissors" as the parameters
+// The function returns one of the strings
+
+function getHumanChoice() {
+    let humanResult = prompt("Play your pick rock, paper, or scissors.");
+    return humanResult;
+}
