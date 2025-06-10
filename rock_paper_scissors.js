@@ -25,54 +25,69 @@ function getHumanChoice() {
 }
 
 // Add two variables to keep the score of the players
-// Inicialize those values at 0
-
-humanScore = 0;
-computerScore = 0;
 
 // Create a funtion that takes two arguments: comp and human
-// Make humanChoice parameter  case insensitive
+// Make humanChoice() parameter  case insensitive
 // Compare arguments
 // Increment Human or Computer Score
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
 function playRound(humanChoice, computerChoice) {
+   
+    
     let roundResult;
-    if (computerChoice === "rock" && humanChoice === "scissors") {
+        if (computerChoice === "rock" && humanChoice === "scissors") {
         roundResult = "Rock beats Scissors. The Winner is Computer!";
-        if (roundResult === "Rock beats Scissors. The Winner is Computer!"){
-            ++computerScore;
-        }
     }   else if (computerChoice === "paper" && humanChoice === "rock"){
         roundResult = "Paper beats Rock. The Winner is Computer!";
-        if (roundResult === "Paper beats Rock. The Winner is Computer!"){
-            ++computerScore;
-        }
     }   else if (computerChoice === "scissors" && humanChoice === "paper"){
         roundResult = "Scissors beats Paper. The Winner is Computer!";
-        if (roundResult === "Scissors beats Paper. The Winner is Computer!"){
-            ++computerScore;
-        }
     }   else if (computerChoice === "scissors" && humanChoice === "rock"){
         roundResult = "Rock beats Scissors. The Winner is Human!";
-        if (roundResult === "Rock beats Scissors. The Winner is Human!"){
-            ++humanScore;
-        }
     }   else if (computerChoice === "rock" && humanChoice === "paper"){
         roundResult = "Paper beats Rock. The Winner is Human!";
-        if (roundResult === "Paper beats Rock. The Winner is Human!"){
-            ++humanScore;
-        }
     }   else if (computerChoice === "paper" && humanChoice === "scissors"){
         roundResult = "Scissors beats Paper. The Winner is Human!";
-        if (roundResult === "Scissors beats Paper. The Winner is Human!"){
-            ++humanScore;
-        }
     }   else {
         roundResult = "It's a draw! Let's go again!";
-    }
-    return roundResult;
+    } return roundResult
 }
+
+function playGame(){
+    humanScore = 0;
+    computerScore = 0;
+
+    for (let round = 1; round <= 5; round++) {
+        console.log(`--- Round ${round} ---`);
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        const result = playRound(humanChoice, computerChoice);
+        console.log(result);
+
+        if (result.includes("The Winner is Computer!")) {
+            computerScore++;
+        } else if (result.includes("The Winner is Human!")) {
+            humanScore++;
+        }
+
+        console.log(`Score -> Human: ${humanScore}, Computer: ${computerScore}`);
+    }
+
+    console.log("----- Game Over -----");
+    if (humanScore > computerScore) {
+        console.log("You are the final winner!");
+    } else if (computerScore > humanScore) {
+        console.log("Computer is the final winner!");
+    } else {
+        console.log("It's a final tie!");
+    }
+}
+
+
+
+playGame();
+
+// Write a function that takes playRound into playGame
+// Play 5 Rounds
+// Keeps tracks of the scores
+// Declares a winner at the end
 
